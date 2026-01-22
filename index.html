@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pro-151: Collector V3.5</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="pokemonData.js"></script>
+
+    <style>
+        /* Your original styles here... */
+    </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    // --- ICONS & UTILS (Your original code here) ---
+    // ... IconSearch, IconArrowLeft, Toast, etc ...
+
+    const getDefaultImage = (entry) => {
+        if (entry.cardImage) return entry.cardImage;
+        if (entry.isTrainer) return 'https://tcg.pokemon.com/assets/img/global/tcg-card-back-2x.jpg';
+        if (entry.apiId <= 151) return `https://images.pokemontcg.io/sv3pt5/${entry.apiId}.png`;
+        return 'https://tcg.pokemon.com/assets/img/global/tcg-card-back-2x.jpg';
+    };
+
+    const App = () => {
+        // ... state management and logic ...
+        // Note: This script now automatically has access to RAW_POKEMON, 
+        // GEN_2_POKEMON, etc., because pokemonData.js was loaded first.
+        
+        // ... Full App Logic (GridView, DetailView, etc.) ...
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+</body>
+</html>
